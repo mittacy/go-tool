@@ -132,3 +132,21 @@ sliceUtil.ToMapStringStruct
 
 ## Functions
 
+### Slice
+
+*map.go*
+
++ `ToMapKeyTypeStruct(values []KeyType) map[KeyType]struct{}`  切片转化为map[keyType]struct{}
+
+*compare.go*
+
++ `DiffKeyType(array []KeyType, arrays ...[]KeyType) []KeyType`  求差集，返回出现在第一个数组中但其他输入数组中没有的值
++ `IntersectKeyType(array []KeyType, arrays ...[]KeyType) []KeyType` 求交集，返回第一个数组中出现的且在其他每个输入数组中都出现的值
++ `TwoDiffKeyType(a []KeyType, b []KeyType) (inAnoB []KeyType, inBnoA []KeyType)` 求两个数组的差异，返回 在a不在b的值、在b不在a的值
+
+*slice.go*
+
++ `UniqueKeyType(values []KeyType) []KeyType` 切片去重
++ `ReverseKeyType(values []KeyType) []KeyType` 切片反转
++ `IndexKeyType(values []KeyType, target KeyType) int` 查询target在values中第一次出现的索引位置，不在则返回-1
++ `IsInArrKeyType(values []KeyType, target KeyType) bool` 判断target是否在values中
