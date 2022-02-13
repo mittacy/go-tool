@@ -177,3 +177,10 @@ sliceUtil.ToMapStringStruct
 
 + `MaxKeyType(nums ...KeyType) (int, KeyType)` 求最大值
 + `MinKeyType(nums ...KeyType) (int, KeyType)` 求最小值
+
+### Random
+
+*random.go*
+
++ `String(n int, randChars ...[]rune) string` 生成随机字符串
++ `Num(min, max int64) int64` 使用math/rand库的随机数，伪随机数，不建议使用在密码类
