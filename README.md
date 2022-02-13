@@ -164,3 +164,16 @@ sliceUtil.ToMapStringStruct
 + `GetKeysKeyTypeValueType(m map[KeyType]ValueType) []KeyType` 获取所有键
 + `GetValuesKeyTypeValueType(m map[KeyType]ValueType) []ValueType` 获取所有值
 + `GetKVKeyTypeValueType(m map[KeyType]ValueType) ([]KeyType, []ValueType)` 获取所有键和值
+
+### Math
+
+> KeyType=int8,int16,int,int32,int64,float32,float64
+
+*math.go*
+
++ `RoundFloat64Unsafe(f float64, scale int) float64` float小数点保留位数，四舍五入，不能保证一定准确
+
+*compare.go*
+
++ `MaxKeyType(nums ...KeyType) (int, KeyType)` 求最大值
++ `MinKeyType(nums ...KeyType) (int, KeyType)` 求最小值
