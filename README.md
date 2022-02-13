@@ -184,3 +184,30 @@ sliceUtil.ToMapStringStruct
 
 + `String(n int, randChars ...[]rune) string` 生成随机字符串
 + `Num(min, max int64) int64` 使用math/rand库的随机数，伪随机数，不建议使用在密码类
+
+### Encode
+
+*encode.go*
+
++ `Base64Encode(str string) string`  base64编码
++ `Base64Decode(str string) (string, error)` base64解码
+
+*url.go*
+
++ `ParseURL(str string, component int) (map[string]string, error)` 解析url
++ `URLEncode(str string) string`
++ `URLDecode(str string) (string, error)`
++ `RawUrlEncode(str string) string`
++ `RawUrlDecode(str string) (string, error)`
+
+*json.go采用[json-iterator](https://github.com/json-iterator/go)库提供更高速的json编译*
+
++ `JSONMarshal(v interface{}) ([]byte, error)`
++ `JSONMarshalString(v interface{}) (string, error)`
++ `JSONUnmarshal(data []byte, v interface{}) error`
++ `JSONUnmarshalString(data string, v interface{}) error`
+
+*encryption.go*
+
++ `Get16MD5Encode(str string) string` 返回16位md5加密后的字符串
++ `Get32MD5Encode(str string) string` 返回32位md5加密后的字符串
