@@ -134,6 +134,8 @@ sliceUtil.ToMapStringStruct
 
 ### Slice
 
+> KeyType=string,rune,int8,int16,int,int32,int64,float32,float64
+
 *map.go*
 
 + `ToMapKeyTypeStruct(values []KeyType) map[KeyType]struct{}`  切片转化为map[keyType]struct{}
@@ -150,3 +152,15 @@ sliceUtil.ToMapStringStruct
 + `ReverseKeyType(values []KeyType) []KeyType` 切片反转
 + `IndexKeyType(values []KeyType, target KeyType) int` 查询target在values中第一次出现的索引位置，不在则返回-1
 + `IsInArrKeyType(values []KeyType, target KeyType) bool` 判断target是否在values中
+
+### Map
+
+> KeyType=string,rune,int8,int16,int,int32,int64,float32,float64
+>
+> ValueType=string,rune,int8,int16,int,int32,int64,float32,float64
+
+*map.go*
+
++ `GetKeysKeyTypeValueType(m map[KeyType]ValueType) []KeyType` 获取所有键
++ `GetValuesKeyTypeValueType(m map[KeyType]ValueType) []ValueType` 获取所有值
++ `GetKVKeyTypeValueType(m map[KeyType]ValueType) ([]KeyType, []ValueType)` 获取所有键和值
