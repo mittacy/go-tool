@@ -1,6 +1,7 @@
 package randomUtil
 
 import (
+	"fmt"
 	"math/rand"
 	"time"
 )
@@ -48,4 +49,20 @@ func Num(min, max int64) int64 {
 
 	rand.Seed(time.Now().UnixNano())
 	return rand.Int63n(max-min) + min
+}
+
+// UniId 随机uniId
+// @param prefix 前缀
+// @param suffixLength 尾部随机字符串长度
+// @return string
+func UniId(prefix string, suffixLength int) string {
+	return UniqueId(prefix) + "_" + String(suffixLength)
+}
+
+// UniqueId 随机Id
+// @param prefix 前缀
+// @return string
+func UniqueId(prefix string) string {
+	now := time.Now()
+	return fmt.Sprintf("%s%08x%05x", prefix, now.Unix(), now.UnixNano()%0x100000)
 }

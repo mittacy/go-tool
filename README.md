@@ -184,6 +184,8 @@ sliceUtil.ToMapStringStruct
 
 + `String(n int, randChars ...[]rune) string` 生成随机字符串
 + `Num(min, max int64) int64` 使用math/rand库的随机数，伪随机数，不建议使用在密码类
++ `UniId(prefix string, suffixLength int) string` 随机uniId
++ `UniqueId(prefix string) string` 随机uniId
 
 ### Encode
 
