@@ -132,3 +132,82 @@ sliceUtil.ToMapStringStruct
 
 ## Functions
 
+### Slice
+
+> KeyType=string,rune,int8,int16,int,int32,int64,float32,float64
+
+*map.go*
+
++ `ToMapKeyTypeStruct(values []KeyType) map[KeyType]struct{}`  切片转化为map[keyType]struct{}
+
+*compare.go*
+
++ `DiffKeyType(array []KeyType, arrays ...[]KeyType) []KeyType`  求差集，返回出现在第一个数组中但其他输入数组中没有的值
++ `IntersectKeyType(array []KeyType, arrays ...[]KeyType) []KeyType` 求交集，返回第一个数组中出现的且在其他每个输入数组中都出现的值
++ `TwoDiffKeyType(a []KeyType, b []KeyType) (inAnoB []KeyType, inBnoA []KeyType)` 求两个数组的差异，返回 在a不在b的值、在b不在a的值
+
+*slice.go*
+
++ `UniqueKeyType(values []KeyType) []KeyType` 切片去重
++ `ReverseKeyType(values []KeyType) []KeyType` 切片反转
++ `IndexKeyType(values []KeyType, target KeyType) int` 查询target在values中第一次出现的索引位置，不在则返回-1
++ `IsInArrKeyType(values []KeyType, target KeyType) bool` 判断target是否在values中
+
+### Map
+
+> KeyType=string,rune,int8,int16,int,int32,int64,float32,float64
+>
+> ValueType=string,rune,int8,int16,int,int32,int64,float32,float64
+
+*map.go*
+
++ `GetKeysKeyTypeValueType(m map[KeyType]ValueType) []KeyType` 获取所有键
++ `GetValuesKeyTypeValueType(m map[KeyType]ValueType) []ValueType` 获取所有值
++ `GetKVKeyTypeValueType(m map[KeyType]ValueType) ([]KeyType, []ValueType)` 获取所有键和值
+
+### Math
+
+> KeyType=int8,int16,int,int32,int64,float32,float64
+
+*math.go*
+
++ `RoundFloat64Unsafe(f float64, scale int) float64` float小数点保留位数，四舍五入，不能保证一定准确
+
+*compare.go*
+
++ `MaxKeyType(nums ...KeyType) (int, KeyType)` 求最大值
++ `MinKeyType(nums ...KeyType) (int, KeyType)` 求最小值
+
+### Random
+
+*random.go*
+
++ `String(n int, randChars ...[]rune) string` 生成随机字符串
++ `Num(min, max int64) int64` 使用math/rand库的随机数，伪随机数，不建议使用在密码类
+
+### Encode
+
+*encode.go*
+
++ `Base64Encode(str string) string`  base64编码
++ `Base64Decode(str string) (string, error)` base64解码
+
+*url.go*
+
++ `ParseURL(str string, component int) (map[string]string, error)` 解析url
++ `URLEncode(str string) string`
++ `URLDecode(str string) (string, error)`
++ `RawUrlEncode(str string) string`
++ `RawUrlDecode(str string) (string, error)`
+
+*json.go采用[json-iterator](https://github.com/json-iterator/go)库提供更高速的json编译*
+
++ `JSONMarshal(v interface{}) ([]byte, error)`
++ `JSONMarshalString(v interface{}) (string, error)`
++ `JSONUnmarshal(data []byte, v interface{}) error`
++ `JSONUnmarshalString(data string, v interface{}) error`
+
+*encryption.go*
+
++ `Get16MD5Encode(str string) string` 返回16位md5加密后的字符串
++ `Get32MD5Encode(str string) string` 返回32位md5加密后的字符串
